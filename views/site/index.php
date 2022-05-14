@@ -7,7 +7,7 @@
  * @var $background
  */
 
-$this->title = 'My Yii Application';
+$this->title = 'Test';
 ?>
 
 
@@ -24,7 +24,7 @@ $this->title = 'My Yii Application';
                             <li>
                                 <?= $item['value']['type'] ?>
                             </li>
-                            <?php if ($depth > 1) { ?>
+                            <?php if ($depth > 1) {?>
                                 <li>
                                     <ul>
                                         <li><?= $item['value']['depth']['value'] ?></li>
@@ -40,12 +40,3 @@ $this->title = 'My Yii Application';
 
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#list > li').click(function (event) {
-            $(this).children("ul").slideToggle();
-            event.stopPropagation();
-        });
-    });
-</script>

@@ -62,16 +62,16 @@ class SiteController extends Controller
      */
     public function actionIndex(string $background = '', int $depth = 1)
     {
-        $background = '(0,1,15)';
-        $depth = 2;
+//        $background = '(0,1,15)';
+//        $depth = 2;
 
         $background = $this->getBackground($background);
-        $data = $this->list($background, $depth);
+        $data = $this->list($depth);
 
         return $this->render('index', compact('data', 'depth', 'background'));
     }
 
-    private function list(string $background = '', int $depth = 1): array
+    private function list(int $depth = 1): array
     {
         $file = dirname(__DIR__, 1) . '/web/file/file.json';
         $content = file_get_contents($file);
