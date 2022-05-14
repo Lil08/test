@@ -1,6 +1,11 @@
 <?php
 
-/** @var yii\web\View $this */
+/**
+ * @var yii\web\View $this
+ * @var $data
+ * @var $depth
+ * @var $background
+ */
 
 $this->title = 'My Yii Application';
 ?>
@@ -11,15 +16,15 @@ $this->title = 'My Yii Application';
     <div class="body-content">
 
         <div class="row">
-            <ul id="list">
-                <?php foreach ($data as $item) {?>
+            <ul id="list" style="<?= $background ?>;">
+                <?php foreach ($data as $item) { ?>
                     <li>
                         <?= $item['name'] ?>
                         <ul>
                             <li>
                                 <?= $item['value']['type'] ?>
                             </li>
-                            <?php if ($depth > 1) { die;?>
+                            <?php if ($depth > 1) { ?>
                                 <li>
                                     <ul>
                                         <li><?= $item['value']['depth']['value'] ?></li>

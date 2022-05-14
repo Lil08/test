@@ -60,25 +60,43 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex($background =  '', $depth = 1)
+    public function actionIndex(string $background = '', int $depth = 1)
     {
-        $data = $this->list('', 2);
-        return $this->render('index', compact('data','depth'));
+        $background = '(0,1,15)';
+        $depth = 2;
+
+        $background = $this->getBackground($background);
+        $data = $this->list($background, $depth);
+
+        return $this->render('index', compact('data', 'depth', 'background'));
     }
 
-    public function list($background =  '', $depth = 1)
+    private function list(string $background = '', int $depth = 1): array
     {
         $file = dirname(__DIR__, 1) . '/web/file/file.json';
         $content = file_get_contents($file);
         $content = Json::decode($content, true);
 
-        if($depth === 1){
-            foreach ($content as $item){
+        if ($depth === 1) {
+            foreach ($content as $item) {
                 unset($item['value']['depth']);
             }
         }
 
         return $content;
+    }
+
+    private function getBackground(string $background): string
+    {
+        if (str_contains($background, 'http')) {
+            $background = 'background-image: url(' . $background . ')';
+        } elseif (str_contains($background, '(')) {
+            $background = 'background-color: rgb' . $background;
+        } else {
+            $background = 'background:' . $background;
+        }
+
+        return $background;
     }
 
     /**
