@@ -65,6 +65,7 @@ class SiteController extends Controller
 //        $background = '(0,1,15)';
 //        $depth = 2;
 
+        $depth = $this->getDepth($depth);
         $background = $this->getBackground($background);
         $data = $this->list($depth);
 
@@ -89,14 +90,21 @@ class SiteController extends Controller
     private function getBackground(string $background): string
     {
         if (str_contains($background, 'http')) {
-            $background = 'background-image: url(' . $background . ')';
+            $style = 'background-image: url(' . $background . ')';
         } elseif (str_contains($background, '(')) {
-            $background = 'background-color: rgb' . $background;
+            $style = 'background-color: rgb' . $background;
         } else {
-            $background = 'background:' . $background;
+            $style = 'background:' . $background;
         }
 
-        return $background;
+        return $style;
+    }
+
+    private function getDepth(int $depth): int
+    {
+        $depth = $depth > 2 ? 2 : $depth;
+
+        return $depth;
     }
 
     /**

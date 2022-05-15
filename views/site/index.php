@@ -20,11 +20,12 @@ $this->title = 'Test';
                 <?php foreach ($data as $item) { ?>
                     <li>
                         <?= $item['name'] ?>
+                        <?php if ($depth > 0) { ?>
                         <ul>
                             <li>
                                 <?= $item['value']['type'] ?>
                             </li>
-                            <?php if ($depth > 1) {?>
+                            <?php if ($depth > 1 && $depth < 3) { ?>
                                 <li>
                                     <ul>
                                         <li><?= $item['value']['depth']['value'] ?></li>
@@ -32,6 +33,7 @@ $this->title = 'Test';
                                 </li>
                             <?php } ?>
                         </ul>
+                        <?php } ?>
                     </li>
                     <?php
                 } ?>

@@ -2,18 +2,36 @@
   {
     "name": "Название1",
     "value": {
-      "type": 1548.07,
+      "type": "text",
       "depth": {
-        "value": 145678
+        "value": "value"
       }
     }
   },
   {
     "name": "Название2",
     "value": {
-      "type": 1232,
+      "type": "int",
       "depth": {
-        "value": 145678
+        "value": 1453212
+      }
+    }
+  },
+  {
+    "name": "Название3",
+    "value": {
+      "type": "text",
+      "depth": {
+        "value": "value"
+      }
+    }
+  },
+  {
+    "name": "Название4",
+    "value": {
+      "type": "text",
+      "depth": {
+        "value": "value"
       }
     }
   }
