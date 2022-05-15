@@ -45,14 +45,6 @@ AppAsset::register($this);
     </div>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#list > li').click(function (event) {
-            $(this).children("ul").slideToggle();
-            event.stopPropagation();
-        });
-    });
-</script>
 <?php $this->endBody() ?>
 </body>
 </html>
