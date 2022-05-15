@@ -1,6 +1,8 @@
 ngnix config:
 
+
 server {
+
         listen 80;
         index index.php index.html;
         server_name basic.localhost;
